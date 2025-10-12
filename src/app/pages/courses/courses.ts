@@ -1,3 +1,4 @@
+// src/app/pages/courses/courses.ts
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CourseCardComponent } from './components/course-card/course-card';
@@ -15,6 +16,14 @@ export class CoursesComponent implements OnInit {
   allCourses: Course[] = [];
   filteredCourses: Course[] = [];
 
+  // Map category IDs to category names that match Course.category values
+  private categoryMap = new Map<number, string>([
+    [1, 'البرمجة'],        // Programming
+    [2, 'التسويق'],        // Marketing
+    [3, 'التصميم'],        // Design
+    [4, 'الأعمال']         // Business
+  ]);
+
   constructor(private coursesService: CoursesService) {}
 
   ngOnInit(): void {
@@ -29,10 +38,15 @@ export class CoursesComponent implements OnInit {
         return false;
       }
 
-      // Category filter (if any selected)
+      // Category filter
       if (filters.categories.length > 0) {
-        // For now, we'll skip category filtering since we need to map category names
-        // You can implement this based on your category structure
+        const selectedCategoryNames = filters.categories
+          .map(id => this.categoryMap.get(id))
+          .filter(name => name !== undefined);
+        
+        if (!selectedCategoryNames.includes(course.category)) {
+          return false;
+        }
       }
 
       // Level filter

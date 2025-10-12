@@ -1,3 +1,4 @@
+// src/app/pages/home/sections/featured-courses/featured-courses.ts
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
@@ -8,7 +9,7 @@ import { CoursesService } from '../../../../core/services/courses';
   selector: 'app-featured-courses',
   standalone: true,
   imports: [CommonModule, RouterLink],
-  templateUrl: './featured-courses.component.html'
+  templateUrl: './featured-courses.html'  // ✅ Fixed: removed .component
 })
 export class FeaturedCoursesComponent implements OnInit {
   courses: Course[] = [];

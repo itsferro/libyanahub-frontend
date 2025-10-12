@@ -12,7 +12,7 @@ export interface CourseFilters {
   selector: 'app-filters-sidebar',
   standalone: true,
   imports: [CommonModule, FormsModule],
-  templateUrl: './filters-sidebar.component.html'
+  templateUrl: './filters-sidebar.html'
 })
 export class FiltersSidebarComponent {
   @Output() filtersChanged = new EventEmitter<CourseFilters>();

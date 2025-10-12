@@ -1,3 +1,4 @@
+// src/app/pages/creator-profile/creator-profile.ts
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
@@ -10,7 +11,7 @@ import { CoursesService } from '../../core/services/courses';
   selector: 'app-creator-profile',
   standalone: true,
   imports: [CommonModule, RouterLink],
-  templateUrl: './creator-profile.component.html'
+  templateUrl: './creator-profile.html'  // ✅ Fixed: removed .component
 })
 export class CreatorProfileComponent implements OnInit {
   creator?: Creator;

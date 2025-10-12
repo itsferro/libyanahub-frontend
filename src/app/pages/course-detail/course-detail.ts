@@ -1,3 +1,4 @@
+// src/app/pages/course-detail/course-detail.ts
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -8,7 +9,7 @@ import { CoursesService } from '../../core/services/courses';
   selector: 'app-course-detail',
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './course-detail.component.html'
+  templateUrl: './course-detail.html'  // ✅ Fixed: removed .component
 })
 export class CourseDetailComponent implements OnInit {
   course?: Course;
