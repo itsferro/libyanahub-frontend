@@ -1,0 +1,53 @@
+<div class="bg-card rounded-lg border border-border p-6 sticky top-24">
+  <div class="flex items-center justify-between mb-6">
+    <h2 class="text-xl font-bold">الفلاتر</h2>
+    <button (click)="clearAll()" class="text-sm text-accent hover:underline">
+      مسح الكل
+    </button>
+  </div>
+
+  <div class="space-y-6">
+    <!-- Categories -->
+    <div>
+      <h3 class="font-bold mb-3">التصنيفات</h3>
+      <div class="space-y-2">
+        <label *ngFor="let category of categories" class="flex items-center gap-2 cursor-pointer hover:text-accent transition-colors">
+          <input 
+            type="checkbox" 
+            [checked]="selectedCategories.includes(category.id)"
+            (change)="toggleCategory(category.id)"
+            class="w-4 h-4 rounded border-border text-accent focus:ring-accent">
+          <span>{{ category.name }}</span>
+          <span class="text-sm text-muted-foreground">({{ category.count }})</span>
+        </label>
+      </div>
+    </div>
+
+    <!-- Levels -->
+    <div class="pt-6 border-t border-border">
+      <h3 class="font-bold mb-3">المستوى</h3>
+      <div class="space-y-2">
+        <label *ngFor="let level of levels" class="flex items-center gap-2 cursor-pointer hover:text-accent transition-colors">
+          <input 
+            type="checkbox"
+            [checked]="selectedLevels.includes(level.id)"
+            (change)="toggleLevel(level.id)"
+            class="w-4 h-4 rounded border-border text-accent focus:ring-accent">
+          <span>{{ level.name }}</span>
+        </label>
+      </div>
+    </div>
+
+    <!-- Free Only -->
+    <div class="pt-6 border-t border-border">
+      <label class="flex items-center gap-2 cursor-pointer hover:text-accent transition-colors">
+        <input 
+          type="checkbox"
+          [(ngModel)]="showFreeOnly"
+          (change)="onFreeOnlyChange()"
+          class="w-4 h-4 rounded border-border text-accent focus:ring-accent">
+        <span class="font-bold">دورات مجانية فقط</span>
+      </label>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,30 @@
+<!-- Replace the courses section with this -->
+<section class="py-12">
+  <div class="container mx-auto px-4">
+    <div class="max-w-5xl mx-auto">
+      <h2 class="text-3xl font-bold mb-8">الدورات</h2>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <a *ngFor="let course of courses" 
+           [routerLink]="['/course', course.id]"
+           class="bg-card rounded-2xl overflow-hidden border border-border hover:border-accent transition-all cursor-pointer block">
+          <div class="h-40 bg-gradient-to-br from-accent/20 to-cyan/20 flex items-center justify-center text-5xl">
+            {{ course.image }}
+          </div>
+          <div class="p-6 space-y-3">
+            <h3 class="text-xl font-bold">{{ course.title }}</h3>
+            <div class="flex items-center gap-4 text-sm text-muted-foreground">
+              <span>⭐ {{ course.rating }}</span>
+              <span>{{ course.students }} طالب</span>
+            </div>
+            <div class="flex items-center justify-between pt-2">
+              <span class="text-accent font-bold text-xl">{{ course.price }} د.ل</span>
+              <span class="px-4 py-2 bg-accent text-accent-foreground rounded-lg font-bold text-sm">
+                التفاصيل
+              </span>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

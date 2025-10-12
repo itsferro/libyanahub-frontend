@@ -5,7 +5,13 @@
   "projects": {
     "libyanahub-frontend": {
       "projectType": "application",
-      "schematics": {},
+      "schematics": {
+        "@schematics/angular:component": {
+          "skipTests": true,
+          "style": "css",
+          "flat": false
+        }
+      },
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",

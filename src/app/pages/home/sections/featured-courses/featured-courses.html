@@ -1,0 +1,37 @@
+<section class="py-20 bg-card/20">
+  <div class="container mx-auto px-4">
+    <div class="text-center mb-12">
+      <h2 class="text-4xl lg:text-5xl font-bold mb-4">الدورات المميزة</h2>
+      <p class="text-xl text-muted-foreground">اختر من بين أفضل الدورات التدريبية</p>
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div *ngFor="let course of courses" class="bg-card rounded-2xl overflow-hidden border border-border hover:border-accent transition-all hover:shadow-2xl">
+        <a [routerLink]="['/course', course.id]" class="block">
+          <div class="h-48 bg-gradient-to-br from-accent/20 to-cyan/20 flex items-center justify-center text-6xl">
+            {{ course.image }}
+          </div>
+        </a>
+        <div class="p-6 space-y-4">
+          <a [routerLink]="['/course', course.id]">
+            <h3 class="text-2xl font-bold hover:text-accent transition-colors">{{ course.title }}</h3>
+          </a>
+          <a [routerLink]="['/creator', course.instructorId]" class="text-muted-foreground hover:text-accent transition-colors text-sm block">
+            بواسطة {{ course.instructor }}
+          </a>
+          <div class="flex items-center gap-2 text-sm text-muted-foreground">
+            <span>⭐ {{ course.rating }}</span>
+            <span>•</span>
+            <span>{{ course.students }} طالب</span>
+          </div>
+          <div class="flex items-center justify-between pt-4">
+            <span class="text-accent font-bold text-2xl">{{ course.price }} د.ل</span>
+            <a [routerLink]="['/course', course.id]" class="px-6 py-2 bg-accent text-accent-foreground rounded-lg hover:opacity-90 transition-opacity font-bold">
+              التفاصيل
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,37 @@
+<div class="min-h-screen py-12">
+  <div class="container mx-auto px-4">
+    <!-- Page Header -->
+    <div class="mb-12">
+      <h1 class="text-4xl lg:text-5xl font-bold mb-4">تصفح الدورات</h1>
+      <p class="text-xl text-muted-foreground">اكتشف مجموعة واسعة من الدورات التدريبية</p>
+    </div>
+
+    <!-- Main Content -->
+    <div class="grid lg:grid-cols-4 gap-8">
+      <!-- Filters Sidebar -->
+      <div class="lg:col-span-1">
+        <app-filters-sidebar (filtersChanged)="onFiltersChanged($event)"></app-filters-sidebar>
+      </div>
+
+      <!-- Courses Grid -->
+      <div class="lg:col-span-3">
+        <div class="mb-6 flex items-center justify-between">
+          <p class="text-muted-foreground">
+            تم العثور على <span class="font-bold text-foreground">{{ filteredCourses.length }}</span> دورة
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 xl:grid-cols-3 gap-6">
+          <app-course-card *ngFor="let course of filteredCourses" [course]="course"></app-course-card>
+        </div>
+
+        <!-- Empty state when no courses found -->
+        <div *ngIf="filteredCourses.length === 0" class="text-center py-20">
+          <div class="text-6xl mb-4">🔍</div>
+          <h3 class="text-2xl font-bold mb-2">لا توجد نتائج</h3>
+          <p class="text-muted-foreground">جرب تعديل الفلاتر للحصول على نتائج أفضل</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

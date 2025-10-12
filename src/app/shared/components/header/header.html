@@ -2,21 +2,21 @@
   <div class="container mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex items-center justify-between h-20">
       <div class="flex items-center gap-8">
-        <h1 class="text-2xl font-bold">
+        <a routerLink="/" class="text-2xl font-bold cursor-pointer">
           <span class="text-foreground">ليبيانا</span>
           <span class="text-accent">هاب</span>
-        </h1>
+        </a>
         <nav class="hidden md:flex gap-6">
-          <a routerLink="/" class="text-foreground hover:text-accent transition-colors">الرئيسية</a>
-          <a routerLink="/courses" class="text-foreground hover:text-accent transition-colors">الدورات</a>
+          <a routerLink="/" routerLinkActive="text-accent" [routerLinkActiveOptions]="{exact: true}" class="text-foreground hover:text-accent transition-colors">الرئيسية</a>
+          <a routerLink="/courses" routerLinkActive="text-accent" class="text-foreground hover:text-accent transition-colors">الدورات</a>
           <a href="#categories" class="text-foreground hover:text-accent transition-colors">التصنيفات</a>
         </nav>
       </div>
 
       <div class="flex items-center gap-4">
-        <button class="px-6 py-2 bg-accent text-accent-foreground rounded-lg hover:opacity-90 transition-opacity font-bold">
+        <a routerLink="/courses" class="px-6 py-2 bg-accent text-accent-foreground rounded-lg hover:opacity-90 transition-opacity font-bold">
           ابدأ الآن
-        </button>
+        </a>
       </div>
     </div>
   </div>

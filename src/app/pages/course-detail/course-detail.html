@@ -1,0 +1,112 @@
+<div class="min-h-screen">
+  <!-- Hero Section -->
+  <section class="bg-gradient-to-b from-primary to-background py-12">
+    <div class="container mx-auto px-4">
+      <div class="grid lg:grid-cols-3 gap-8">
+        <!-- Left Content -->
+        <div class="lg:col-span-2 space-y-6">
+          <h1 class="text-4xl lg:text-5xl font-bold">{{ course.title }}</h1>
+          <p class="text-xl text-muted-foreground">{{ course.description }}</p>
+          
+          <div class="flex items-center gap-4 flex-wrap">
+            <div class="flex items-center gap-2">
+              <span class="text-yellow text-xl">⭐</span>
+              <span class="font-bold">{{ course.rating }}</span>
+              <span class="text-muted-foreground">({{ course.reviewCount }} تقييم)</span>
+            </div>
+            <span class="text-muted-foreground">•</span>
+            <span class="text-muted-foreground">{{ course.students }} طالب</span>
+          </div>
+
+          <div class="flex items-center gap-3">
+            <div class="text-4xl">{{ course.instructorImage }}</div>
+            <div>
+              <p class="text-sm text-muted-foreground">المدرب</p>
+              <p class="font-bold text-lg">{{ course.instructor }}</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Card -->
+        <div class="lg:col-span-1">
+          <div class="bg-card rounded-2xl border border-border p-6 space-y-6 sticky top-24">
+            <div class="aspect-video bg-gradient-to-br from-accent/20 to-cyan/20 rounded-xl flex items-center justify-center text-6xl">
+              {{ course.image }}
+            </div>
+
+            <div class="space-y-2">
+              <div class="flex items-baseline gap-3">
+                <span class="text-4xl font-bold text-accent">{{ course.price }} د.ل</span>
+                <span class="text-xl text-muted-foreground line-through">{{ course.originalPrice }} د.ل</span>
+              </div>
+              <p class="text-sm text-green-400">وفر {{ course.originalPrice - course.price }} دينار!</p>
+            </div>
+
+            <button class="w-full py-4 bg-accent text-accent-foreground rounded-lg font-bold text-lg hover:opacity-90 transition-opacity">
+              اشترك الآن
+            </button>
+
+            <div class="space-y-3 pt-4 border-t border-border text-sm">
+              <div class="flex items-center justify-between">
+                <span class="text-muted-foreground">المستوى</span>
+                <span class="font-bold">{{ course.level }}</span>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-muted-foreground">المدة</span>
+                <span class="font-bold">{{ course.duration }} ساعة</span>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-muted-foreground">الدروس</span>
+                <span class="font-bold">{{ course.lessonsCount }} درس</span>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-muted-foreground">اللغة</span>
+                <span class="font-bold">{{ course.language }}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What You'll Learn -->
+  <section class="py-12">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl">
+        <h2 class="text-3xl font-bold mb-6">ماذا ستتعلم</h2>
+        <div class="bg-card rounded-xl border border-border p-8">
+          <div class="grid md:grid-cols-2 gap-4">
+            <div *ngFor="let item of course.whatYouLearn" class="flex items-start gap-3">
+              <span class="text-green-400 text-xl">✓</span>
+              <span>{{ item }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Curriculum -->
+  <section class="py-12 bg-card/20">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl">
+        <h2 class="text-3xl font-bold mb-6">محتوى الدورة</h2>
+        <div class="space-y-4">
+          <div *ngFor="let section of course.curriculum" class="bg-card rounded-xl border border-border overflow-hidden">
+            <div class="p-6 flex items-center justify-between bg-secondary/50">
+              <h3 class="font-bold text-lg">{{ section.title }}</h3>
+              <span class="text-sm text-muted-foreground">{{ section.duration }}</span>
+            </div>
+            <div class="p-6 space-y-3">
+              <div *ngFor="let lesson of section.lessons" class="flex items-center gap-3 text-muted-foreground">
+                <span class="text-accent">▶</span>
+                <span>{{ lesson }}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

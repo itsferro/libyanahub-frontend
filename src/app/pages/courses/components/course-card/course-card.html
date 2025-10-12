@@ -1,0 +1,37 @@
+<a [routerLink]="['/course', course.id]" class="bg-card rounded-2xl overflow-hidden border border-border hover:border-accent transition-all hover:shadow-2xl cursor-pointer block">
+  <div class="h-48 bg-gradient-to-br from-accent/20 to-cyan/20 flex items-center justify-center text-6xl">
+    {{ course.image }}
+  </div>
+  <div class="p-6 space-y-4">
+    <div class="flex items-center gap-2">
+      <span *ngIf="course.isBestseller" class="px-3 py-1 bg-accent/20 text-accent text-xs font-bold rounded-full">
+        الأكثر مبيعاً
+      </span>
+      <span *ngIf="course.isNew" class="px-3 py-1 bg-cyan/20 text-cyan text-xs font-bold rounded-full">
+        جديد
+      </span>
+    </div>
+    
+    <h3 class="text-xl font-bold line-clamp-2">{{ course.title }}</h3>
+    <p class="text-muted-foreground text-sm">بواسطة {{ course.instructor }}</p>
+    
+    <div class="flex items-center gap-4 text-sm text-muted-foreground">
+      <span>⭐ {{ course.rating }}</span>
+      <span>•</span>
+      <span>{{ course.students }} طالب</span>
+    </div>
+    
+    <div class="flex items-center gap-2 text-sm text-muted-foreground">
+      <span>📚 {{ course.lessonsCount }} درس</span>
+      <span>•</span>
+      <span>⏱️ {{ course.duration }} ساعة</span>
+    </div>
+    
+    <div class="flex items-center justify-between pt-4 border-t border-border">
+      <span class="text-accent font-bold text-2xl">{{ course.price }} د.ل</span>
+      <span class="px-6 py-2 bg-accent text-accent-foreground rounded-lg font-bold">
+        عرض التفاصيل
+      </span>
+    </div>
+  </div>
+</a>
