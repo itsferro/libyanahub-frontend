@@ -1,0 +1,39 @@
+<section class="py-20 bg-card/20" id="business">
+  <div class="container mx-auto px-4">
+    <div class="grid lg:grid-cols-2 gap-12 items-center">
+      <!-- Left: Content -->
+      <div class="space-y-6">
+        <h2 class="text-4xl lg:text-5xl font-bold">
+          حلول ليبيانا هاب للشركات
+        </h2>
+        
+        <p class="text-xl text-muted-foreground">
+          طور فريقك وزد إنتاجيتك
+        </p>
+
+        <!-- Benefits List -->
+        <ul class="space-y-4">
+          <li *ngFor="let benefit of benefits" 
+              class="flex items-center gap-3 text-lg">
+            <span class="text-2xl">{{ benefit.icon }}</span>
+            <span>{{ benefit.text }}</span>
+          </li>
+        </ul>
+
+        <button class="px-6 py-3 bg-accent text-accent-foreground rounded-lg hover:opacity-90 transition-opacity font-bold text-lg mt-6">
+          تواصل معنا للحلول المؤسسية
+        </button>
+      </div>
+
+      <!-- Right: Image Placeholder -->
+      <div class="order-first lg:order-last">
+        <div class="w-full aspect-[4/3] bg-gradient-to-br from-accent/20 to-cyan/20 rounded-2xl flex items-center justify-center shadow-xl">
+          <div class="text-center space-y-4">
+            <div class="text-7xl">🏢</div>
+            <p class="text-xl font-bold text-muted-foreground">Business Solutions</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

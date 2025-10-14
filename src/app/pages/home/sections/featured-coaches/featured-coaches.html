@@ -1,0 +1,58 @@
+<section id="coaches" class="py-24 bg-secondary">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Section Header -->
+    <div class="text-center mb-16">
+      <h2 class="text-4xl sm:text-5xl font-bold mb-4">المدربون المميزون</h2>
+      <p class="text-xl text-muted-foreground max-w-2xl mx-auto">
+        تعلم من خبراء في مجالاتهم مع سنوات من الخبرة
+      </p>
+    </div>
+
+    <!-- Coaches Grid -->
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+      <a *ngFor="let coach of coaches" 
+         [routerLink]="['/creator', coach.id]"
+         class="bg-card overflow-hidden hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-border rounded-2xl group cursor-pointer block">
+        
+        <!-- Avatar -->
+        <div class="h-48 bg-gradient-to-br from-accent/20 to-cyan/20 flex items-center justify-center text-7xl">
+          {{ coach.avatar }}
+        </div>
+
+        <!-- Content -->
+        <div class="p-6 space-y-4">
+          <!-- Name & Specialty -->
+          <div>
+            <h3 class="text-xl font-bold mb-2 group-hover:text-accent transition-colors">
+              {{ coach.name }}
+            </h3>
+            <p class="text-muted-foreground text-sm">
+              {{ coach.specialty }}
+            </p>
+          </div>
+
+          <!-- Stats -->
+          <div class="flex items-center gap-4 text-sm pt-4 border-t border-border">
+            <div class="flex items-center gap-1">
+              <span class="text-yellow">⭐</span>
+              <span class="font-bold">{{ coach.rating }}</span>
+            </div>
+            <div class="flex items-center gap-1 text-muted-foreground">
+              <span>👥</span>
+              <span>{{ coach.students.toLocaleString() }}</span>
+            </div>
+            <div class="flex items-center gap-1 text-muted-foreground">
+              <span>📚</span>
+              <span>{{ coach.courses }}</span>
+            </div>
+          </div>
+
+          <!-- CTA Button -->
+          <button class="w-full py-2 px-4 bg-accent text-accent-foreground rounded-lg hover:opacity-90 transition-opacity font-bold mt-4">
+            عرض الملف الشخصي
+          </button>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>

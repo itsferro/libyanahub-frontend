@@ -1,0 +1,25 @@
+<section class="py-20 bg-card/30">
+  <div class="container mx-auto px-4">
+    <!-- Section Header -->
+    <div class="text-center mb-16">
+      <h2 class="text-4xl lg:text-5xl font-bold mb-4">
+        لماذا ليبيانا هاب؟
+      </h2>
+      <p class="text-xl text-muted-foreground">
+        المنصة الليبية الأولى المصممة خصيصاً لك
+      </p>
+    </div>
+
+    <!-- Reasons Grid -->
+    <div class="grid md:grid-cols-2 gap-8">
+      <div *ngFor="let reason of reasons; let i = index" 
+           class="bg-card/50 backdrop-blur-sm border border-border/50 rounded-xl p-8 hover:border-secondary/50 transition-all cursor-pointer">
+        <div class="text-5xl mb-4">{{ reason.icon }}</div>
+        <h3 class="text-2xl font-bold mb-3">{{ reason.title }}</h3>
+        <p class="text-muted-foreground text-lg leading-relaxed">
+          {{ reason.description }}
+        </p>
+      </div>
+    </div>
+  </div>
+</section>

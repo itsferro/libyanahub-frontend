@@ -1,0 +1,11 @@
+<section class="mb-12">
+  <h2 class="text-3xl font-bold mb-6">المتطلبات</h2>
+  <div class="border border-border rounded-lg p-6 bg-card">
+    <ul class="space-y-3">
+      <li *ngFor="let requirement of requirements" class="flex items-start gap-3">
+        <span class="text-muted-foreground mt-1">•</span>
+        <span class="leading-relaxed">{{ requirement }}</span>
+      </li>
+    </ul>
+  </div>
+</section>
